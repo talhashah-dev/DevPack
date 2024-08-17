@@ -1,13 +1,25 @@
-import './App.css'
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 function App() {
-
   return (
-    <>
-    <h1 className="text-3xl font-bold">DevPack</h1>
-    <p>Everything a Developer Needs.</p>
-    </>
-  ) 
+    <div className="mx-auto max-w-7xl p-6 lg:px-8">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
