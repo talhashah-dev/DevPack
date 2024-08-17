@@ -1,2 +1,3 @@
 # DevPack
-Everything a Developer Needs.
+
+**Everything a Developer Needs.**
