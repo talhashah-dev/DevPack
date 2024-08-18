@@ -12,6 +12,9 @@ import ThinkPadImg3 from "./images/thinkpad3.png";
 import ThinkPadImg4 from "./images/thinkpad4.jpg";
 import LaptopCharger from "./images/charger.jpg";
 import NokiaEdge from "./images/nokiaEdge.jpg";
+import JohnImg from "./images/john.jpg";
+import AliImg from "./images/ali.jpg";
+import FatimaImg from "./images/fatima.jpg";
 
 export {
   Logo,
@@ -27,5 +30,8 @@ export {
   ThinkPadImg3,
   ThinkPadImg4,
   LaptopCharger,
-  NokiaEdge
+  NokiaEdge,
+  JohnImg,
+  FatimaImg,
+  AliImg
 };
