@@ -24,7 +24,7 @@ const Explore = () => {
     },
   ];
   return (
-    <div className="mt-10 flex items-center justify-between">
+    <div className="mt-10 flex items-center justify-between flex-wrap gap-y-3">
       {categories.map((value, index) => {
         return (
             <div key={index} className="rounded-full h-28 w-26 w-28 p-5 flex flex-col items-center justify-center bg-gray-200 hover:bg-gray-300">
