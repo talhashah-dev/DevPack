@@ -2,7 +2,8 @@ import Collections from "../components/Collections"
 import Explore from "../components/Explore"
 import Hero from "../components/Hero"
 
-import NewProducts from "../components/NewProducts"
+// import NewProducts from "../components/NewProducts"
+import Products from "./Products"
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
         <Hero />
         <Explore />
         <Collections />
-        <NewProducts />
+        <Products />
+        {/* <NewProducts /> */}
     </>
   )
 }

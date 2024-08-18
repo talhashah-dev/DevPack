@@ -23,11 +23,24 @@ const ProductList = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center p-6">Loading...</div>;
+    return (
+        <div className="w-full mb-5 text-center">
+            <h1 className="text-4xl font-bold">
+                Loading...
+            </h1>
+        </div>
+    );
   }
 
   if (error) {
-    return <div className="text-center p-6 text-red-500">Error: {error}</div>;
+    return (
+        <div className="w-full flex flex-col items-center gap-y-3 mb-5">
+            <h1 className="text-4xl font-bold">
+                Opps!
+            </h1>
+            <p>Check Your Connections!</p>
+        </div>
+    );
   }
 
   return (

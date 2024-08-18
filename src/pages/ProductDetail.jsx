@@ -20,7 +20,14 @@ const ProductDetails = () => {
     fetchProduct();
   }, [productId]);
 
-  if (!product) return <div>Loading...</div>;
+  if (!product) return (
+    <div className="w-full mb-5 text-center">
+            <h1 className="text-4xl font-bold">
+                Loading...
+            </h1>
+        </div>
+  );
+
 
   return (
     <div className="max-w-3xl mx-auto p-8 bg-white shadow-lg rounded-lg">
