@@ -12,18 +12,14 @@ const ProductCard = ({ product }) => {
           loading="lazy"
         />
       </Link>
-      <div className="p-4">
-        <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
-        <p className="text-gray-600 mb-2">{product.description}</p>
-        <p className="text-gray-800 font-bold mb-2">${product.price.toFixed(2)}</p>
-        <p className="text-sm text-gray-500">
-          Rating: {product.rating.toFixed(1)} ({product.stock} in stock)
-        </p>
+      <div className="px-2 py-2">
+        <h2 className="text-base mb-1">{product.title}</h2>
+        <p className="text-gray-600 mb-2">{product.description.slice(0,50)}..</p>
         <div className="mt-4 flex justify-between items-center">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        <p className="text-sm text-gray-800 font-bold mb-2">${product.price.toFixed(2)}</p>
+          <button className="text-indigo-500 px-1 py-0 border-white border hover:border-indigo-500 active:ring-1">
             Add to Cart
           </button>
-          <p className="text-sm text-gray-600">{product.category}</p>
         </div>
       </div>
     </div>
