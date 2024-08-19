@@ -12,8 +12,7 @@ const NewProducts = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://dummyjson.com/products");
-      console.log(response);
-      setProducts(response.data.products);
+      setProducts(response.data.products.slice(0,5));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -55,29 +54,22 @@ const NewProducts = () => {
           </h2>
           <Link to="/products" className="inline-block border border-indigo-600 px-8 py-2 text-center font-medium text-indigo-600">Show All Products</Link>
         </span>
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
           {products.map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  alt={product.imageAlt}
-                  src={product.thumbnail}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                />
-              </div>
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.brand}</p>
+             <div className="max-w-3xl mx-auto p-2 bg-white shadow-lg rounded-lg" key={product.id}>
+              <img className="w-full h-40 object-cover rounded-md mb-6" src={product.thumbnail} alt={product.title} />
+              <div className="space-y-4">
+                <h2 className="text-1xl font-extrabold text-gray-900">{product.title}</h2>
+                <p className="text-sm text-gray-700 leading-relaxed">{product.description}</p>
+                <div className="text-xl font-bold text-gray-800">
+                  <span className="block text-sm">${product.price.toFixed(2)}</span>
+                  <span className="text-sm text-gray-500">Rating: {product.rating.toFixed(1)} / 5</span>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}$
-                </p>
+                {/* <div className="text-gray-600">
+                  <p className="text-sm">Category: <span className="font-semibold">{product.category}</span></p>
+                  <p className="text-sm">Stock: <span className="font-semibold">{product.stock}</span></p>
+                </div> */}
+                {/* <button className="w-full bg-blue-500 text-white py-3 rounded-md text-lg font-semibold hover:bg-blue-600 transition">Add to Cart</button> */}
               </div>
             </div>
           ))}

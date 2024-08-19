@@ -1,20 +1,18 @@
-import Collections from "../components/Collections"
-import Explore from "../components/Explore"
-import Hero from "../components/Hero"
+import Collections from "../components/Collections";
+import Explore from "../components/Explore";
+import Hero from "../components/Hero";
 
-// import NewProducts from "../components/NewProducts"
-import Products from "./Products"
+import NewProducts from "../components/NewProducts";
 
 const Home = () => {
   return (
     <>
-        <Hero />
-        <Explore />
-        <Collections />
-        <Products />
-        {/* <NewProducts /> */}
+      <Hero />
+      <Explore />
+      <Collections />
+      <NewProducts />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
