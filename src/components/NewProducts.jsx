@@ -13,11 +13,6 @@ const NewProducts = () => {
     try {
       const response = await axios.get("https://dummyjson.com/products");
       setProducts(response.data.products.slice(0,5));
-      const test = () => {
-        response.data.products[0].description.length > 100 ? console.log("a",response.data.products[0].description.length ) : console.log("b",response.data.products[0].description.length )
-        
-      }
-      test()
     } catch (err) {
       setError(err.message);
     } finally {
