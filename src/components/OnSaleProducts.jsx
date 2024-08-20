@@ -7,12 +7,14 @@ const OnSaleProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  let discount = 21;
+  const [productCount, setProductCount] = useState(5)
+  let discount = 50;
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://dummyjson.com/products");
-      setProducts(response.data.products.slice(10,20));
+      let newProduct = response.data.products.slice(0,productCount)
+      setProducts(newProduct);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -22,7 +24,11 @@ const OnSaleProducts = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [productCount])
+
+  const loadMoreProducts = () => {
+    setProductCount(productCount + 5);
+  };
 
   if (loading) {
     return (
@@ -50,7 +56,7 @@ const OnSaleProducts = () => {
       <div className="mx-auto max-w-2xl py-16 sm:px-6 sm:py-10 lg:max-w-7xl">
         <span className="flex items-center justify-between">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            On Sale Products
+            Buy now with <span className="px-2 rounded-2xl bg-red-500 text-white">%{discount}</span> Flat Discount!
           </h2>
           <Link to="/products" className="inline-block border border-indigo-600 px-8 py-2 text-center font-medium text-indigo-600">Show All Products</Link>
         </span>
@@ -60,7 +66,7 @@ const OnSaleProducts = () => {
               <img className="w-full h-40 object-cover rounded-md mb-6" src={product.thumbnail} alt={product.title} />
               <div className="space-y-4">
                 <h2 className="text-1xl text-gray-900">{product.title}</h2>
-                <div className="text-xl text-gray-800 flex justify-between">
+                <div className="text-xl text-gray-800 flex justify-between items-end">
                   <span className="text-sm flex flex-col">
                     <span className="text-lg text-orange-600">${((product.price)-(product.price*discount/100)).toFixed(2)}</span>
                     <span className="text-xs">
@@ -73,9 +79,12 @@ const OnSaleProducts = () => {
             </div>
           ))}
         </div>
+        <div className="mt-10 flex justify-center">
+            <button className="text-xl border border-indigo-500 text-indigo-500 p-36 py-2" onClick={() => loadMoreProducts()}>Load More</button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default OnSaleProducts
+export default OnSaleProducts;
