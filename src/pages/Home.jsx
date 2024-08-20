@@ -3,6 +3,7 @@ import Explore from "../components/Explore";
 import Hero from "../components/Hero";
 
 import NewProducts from "../components/NewProducts";
+import OnSaleProducts from "../components/OnSaleProducts";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Explore />
       <Collections />
       <NewProducts />
+      <OnSaleProducts />
     </>
   );
 };
