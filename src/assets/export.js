@@ -18,6 +18,8 @@ import AliImg from "./images/ali.jpg";
 import FatimaImg from "./images/fatima.jpg";
 import DevNeedsImg from "./images/devNeeds.jpg";
 import AccessoriesImg from "./images/accessories.jpg";
+import PromoImg1 from "./images/signup-page-promo1.png"
+import PromoImg2 from "./images/signup-page-promo2.png"
 
 export {
   Logo,
@@ -40,4 +42,6 @@ export {
   JohnImg,
   FatimaImg,
   AliImg,
+  PromoImg1,
+  PromoImg2
 };

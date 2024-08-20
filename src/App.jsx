@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetail";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
