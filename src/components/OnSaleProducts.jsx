@@ -7,13 +7,13 @@ const OnSaleProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [productCount, setProductCount] = useState(5)
-  let discount = 50;
+  const [productCount, setProductCount] = useState(20)
+  let discount = 21;
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://dummyjson.com/products");
-      let newProduct = response.data.products.slice(0,productCount)
+      let newProduct = response.data.products.slice(10,productCount)
       setProducts(newProduct);
     } catch (err) {
       setError(err.message);
@@ -70,7 +70,8 @@ const OnSaleProducts = () => {
                   <span className="text-sm flex flex-col">
                     <span className="text-lg text-orange-600">${((product.price)-(product.price*discount/100)).toFixed(2)}</span>
                     <span className="text-xs">
-                        <span className="text-gray-400 line-through">${product.price.toFixed(2)}</span> {`-${discount}%`}
+                        <span className="text-gray-400 line-through">${product.price.toFixed(2)}</span> 
+                        <span className="mx-1 px-1 rounded-2xl bg-red-500 text-white">{`-${discount}%`}</span>
                     </span>
                   </span>
                   <span className="text-sm text-gray-500">Rating: {product.rating.toFixed(1)} / 5</span>
